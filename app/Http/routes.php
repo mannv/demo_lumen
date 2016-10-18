@@ -19,4 +19,5 @@
 Route::group(['prefix' => 'v1'], function(){
 //    Route::resource('login', 'AuthenticateController', ['only' => ['index']]);
     Route::post('login', 'AuthenticateController@index');
+    Route::post('register', 'AuthenticateController@register');
 });
