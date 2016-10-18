@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
+use Mockery\CountValidator\Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthenticateController extends Controller
 {
+    
+    public function __construct() {
+        $this->middleware('jwt.auth',['only' => 'show']);
+    }
+    
     public function register(Request $request)
     {
         $validate = $this->validateRegisterUser($request->all());
@@ -74,6 +80,16 @@ class AuthenticateController extends Controller
                 'error' => $ex->getMessage()
             ], 500);
         }
-        return response()->json($token);
+        return response()->json(['status' => 1,'access_token' => $token]);
+    }
+
+
+    public function show() {
+        try {
+            $list = User::orderBy('id', 'DESC')->paginate(10);
+            return response()->json(['status' => 1, 'users' => $list]);
+        } catch (Exception $ex) {
+            return response()->json(['status' => -1, 'message' => $ex->getMessage()], 404);
+        }
     }
 }

@@ -1,0 +1,60 @@
+Lumen demo
+===================
+##register
+Link: http://lumen.dev/v1/register
+
+**Descriptions**
+user register
+
+Request method: **POST**
+**Params**
+|Name|Type|Required|Ex|
+|:--|:--|:--|:--|
+|name|string|<i class="icon-ok"></i>|Ha Anh Man|
+|email|string|<i class="icon-ok"></i>|man.nv@gmail.com|
+|password|string|<i class="icon-ok"></i>|123123|
+
+**Return value**
+|Name|Type|Ex|Description|
+|:--|:--|:--|:--|
+|status|integer|0/1|0: error, 1: success|
+|access_token|string|aeyJ0eXAiOiJKV1Qi....|string token|
+
+**Sample**
+
+    {
+      "status": 1,
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlzcyI6Imh0dHA6XC9cL2x1bWVuLmRldlwvdjFcL3JlZ2lzdGVyIiwiaWF0IjoxNDc2NzgzOTQzLCJleHAiOjE0NzY3ODc1NDMsIm5iZiI6MTQ3Njc4Mzk0MywianRpIjoiOWY4OThlNTBhMzc4N2Y1NDA1NzQ2OTQ3YjU3ZDBjZGUifQ.XD8mw-6_ShXcAP6VBfSwAcsZihe9ArT2b0x4imtqxAU"
+    }
+
+
+----------
+##Login
+Link: http://lumen.dev/v1/login
+
+**Descriptions**
+user login
+Request method: **POST**
+
+**Params**
+|Name|Type|Required|Ex|
+|:--|:--|:--|:--|
+|email|string|<i class="icon-ok"></i>|man.nv@gmail.com|
+|password|string|<i class="icon-ok"></i>|123123|
+
+**Return value**
+|Name|Type|Ex|Description|
+|:--|:--|:--|:--|
+|status|integer|0/1|0: error, 1: success|
+|access_token|string|aeyJ0eXAiOiJKV1Qi....|string token|
+
+**Sample**
+
+    {
+      "status": 1,
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlzcyI6Imh0dHA6XC9cL2x1bWVuLmRldlwvdjFcL3JlZ2lzdGVyIiwiaWF0IjoxNDc2NzgzOTQzLCJleHAiOjE0NzY3ODc1NDMsIm5iZiI6MTQ3Njc4Mzk0MywianRpIjoiOWY4OThlNTBhMzc4N2Y1NDA1NzQ2OTQ3YjU3ZDBjZGUifQ.XD8mw-6_ShXcAP6VBfSwAcsZihe9ArT2b0x4imtqxAU"
+    }
+
+
+----------
+[toc]
