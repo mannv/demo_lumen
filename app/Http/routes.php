@@ -11,14 +11,19 @@
 |
 */
 
-//Route::get('/', 'IndexController@index');
+Route::get('/', function(){
+    $laravel = app();
+    $version = $laravel::VERSION;
+    return $version;
+});
 
 //Route::auth();
 
-//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'IndexController@index');
 Route::group(['prefix' => 'v1'], function(){
 //    Route::resource('login', 'AuthenticateController', ['only' => ['index']]);
     Route::post('login', 'AuthenticateController@index');
     Route::post('register', 'AuthenticateController@register');
     Route::get('show','AuthenticateController@show');
+    Route::get('list-token', 'AuthenticateController@listToken');
 });

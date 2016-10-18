@@ -15,11 +15,14 @@ class GetUserFromToken
      */
     public function handle($request, Closure $next)
     {
-        $token = $request->header('token');
-        if (empty($token)) {
-            return response()->json(['message' => 'Unauthorized.', 'code' => 401], 401);
-        } else {
-            return $next($request);
+        $access_token = $request->header('access_token');
+        if (empty($access_token)) {
+            return response()->json(['message' => 'access_token not found.', 'code' => 401], 401);
         }
+
+        //kiem tra token co ton tai hay khong
+        \Redis::class;
+
+        return $next($request);
     }
 }

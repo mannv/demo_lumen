@@ -11,6 +11,12 @@ class IndexController extends Controller
 {
     //
     public function index() {
+
+        $redis = new \Redis();
+        $redis->select('db0');
+        $redis->set('name', 'Jonh', 3600);
+        die;
+
         $hash1 = \Hash::make('123123');
         $hash2 = '$2y$10$jXXQfi7pJtIkwgpaFliADeJ1xRy3r0cB/aAOSbYfMtfFpigpm2kQu';
         echo $hash1 . '<br />';
